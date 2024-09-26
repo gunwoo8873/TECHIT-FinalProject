@@ -1,3 +1,12 @@
-/target
+#### IDE Dummy
 .idea
+
+#### Rust Dummy Files
 Cargo.lock
+/target
+
+#### Terraform
+.terraform.*
+.terraform
+./terraform/*.tfsate
+./terraform/*.tfsate.backup
