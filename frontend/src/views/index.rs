@@ -1,6 +1,8 @@
 use yew::{function_component, html, Html};
-use std::{cell::RefCell, rc::Rc};
-use crate::api::types::{User, AppState};
+use yew_router::prelude::*;
+use crate::router::Route;
+// use std::{cell::RefCell, rc::Rc};
+// use crate::api::types::{User, AppState};
 
 #[function_component(Index)]
 pub fn index() -> Html {
@@ -8,15 +10,14 @@ pub fn index() -> Html {
         <>
         // <form action={format!("/views/{}", id)} method="get">
         <header>
-             <ul class="header__menu">
-                <li><a id="1" aria-label="Menu item 1">{"Home"}</a></li>
-                <li><a id="2" aria-label="Menu item 2">{"About"}</a></li>
-                <li><a id="3" aria-label="Menu item 3">{"Services"}</a></li>
-                <li><a id="4" aria-label="Menu item 4">{"Contact"}</a></li>
-                <li><a id="5" aria-label="Menu item 5">{"Help"}</a></li>
-            </ul>
+             <div class="header__menu">
+                <Link<Route> to={Route::Index}>{ "Home" }</Link<Route>>
+                <Link<Route> to={Route::AMM}>{ "자산관리" }</Link<Route>>
+            </div>
             <div>
                 //// Dynamic User Signin & Register Feature
+                <Link<Route> to={Route::Signin}>{ "signin" }</Link<Route>>
+                <Link<Route> to={Route::Register}>{ "register" }</Link<Route>>
             </div>
         </header>
         <main>
