@@ -5,5 +5,23 @@ license = "MIT"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies.actix-web]
-version = "4.9.0"
+[dependencies]
+#### DateTime Lib
+chrono = {version = "0.4.38"}
+
+#### Webassambly
+wasm-bindgen = {version = "0.2.93"}
+wasm-bindgen-futures = {version = "0.4.43"}
+web-sys = {version = "0.3.70"}
+
+#### Yew
+yew = {version = "0.21.0" , features = ["csr"]}
+yew-router = {version = "0.18.0"}
+
+#### Serde
+serde = {version = "1.0.210", features = ["default"]}
+serde_json = {version = "1.0.128"}
+serde_derive = {version = "1.0.210"}
+
+#### Error
+thiserror = {version = "1.0.38"}
