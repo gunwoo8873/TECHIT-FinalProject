@@ -29,6 +29,14 @@ cd TECHIT_FinalProject && chmod +x run.sh
 Frontend
 ---
 
+* Manual
+    ```bash
+    rustup install stable &&\ # Rust Install
+    rustup default stable &&\ # Rust Run Default
+    cargo build --release &&\ # Rust Build
+    cd frontend &&\
+    trunk serve --open # Yew Run CMD
+    ```
 
 Backend
 ---
