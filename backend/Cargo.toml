@@ -3,4 +3,13 @@ name = "backend"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
+[dependencies.axum]
+version = "0.7.7"
+
+[dependencies.actix-web]
+version = "4.9.0"
+
+[dependencies.tokio]
+version = "1.25.0"
+
+[workspace]
