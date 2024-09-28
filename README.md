@@ -15,7 +15,7 @@ git clone https://github.com/gunwoo8873/TECHIT-FinalProject.git
 
 Install & Run Script
 ---
-```markdown
+```bash
 cd TECHIT_FinalProject && chmod +x run.sh
 ./run.sh
 ```
@@ -28,6 +28,7 @@ cd TECHIT_FinalProject && chmod +x run.sh
 
 Frontend
 ---
+
 
 Backend
 ---
