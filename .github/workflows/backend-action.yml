@@ -16,5 +16,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Rustup
-        
-
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          profile: minimal
+          components: rustfmt, clippy
+          default: true

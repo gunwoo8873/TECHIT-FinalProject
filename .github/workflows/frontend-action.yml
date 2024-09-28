@@ -1,4 +1,18 @@
 name: frontend-action.yml
 on:
+  push:
+    branches: [ "frontend/**" ]
+    path: "frontend/**"
+  pull_request:
+    branches: [ "frontend/**" ]
+    path: "frontend/**"
+  workflow_dispatch:
 
 jobs:
+  Linux-Build:
+    runs-on: ubuntu-latest # Ubuntu 22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rustup
