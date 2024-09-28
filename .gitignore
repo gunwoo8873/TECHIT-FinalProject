@@ -1,12 +1,15 @@
-#### IDE Dummy
+#### Main Cargo
+Cargo.lock
+/target/*
 .idea
 
-#### Rust Dummy Files
-Cargo.lock
-/target
+#### Frontend
+/frontend/target/*
+/frontend/Cargo.lock
+
+#### Backend
+/backend/target/*
+/backend/Cargo.lock
 
 #### Terraform
-.terraform.*
-.terraform
-./terraform/*.tfsate
-./terraform/*.tfsate.backup
+/terraform/terraform.*
