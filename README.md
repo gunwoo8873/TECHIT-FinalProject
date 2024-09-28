@@ -33,8 +33,8 @@ Frontend
     ```bash
     rustup install stable &&\ # Rust Install
     rustup default stable &&\ # Rust Run Default
-    cargo build --release &&\ # Rust Build
     cd frontend &&\
+    cargo build --release &&\ # Rust Build
     trunk serve --open # Yew Run CMD
     ```
 
