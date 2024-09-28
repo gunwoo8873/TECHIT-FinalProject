@@ -1,7 +1,10 @@
 # TECHIT FinalProject
-* Title   : `-`  
-* Date    : `2024. 09. 30 ~ 11. 01`
-* Version : `a1.0.0`
+* Title   : `-`
+* Description : `-`
+* Date    : 
+  * Setup   : `2024. 09. 27 ~ 30`
+  * Devploy : `2024. 09. 30 ~ 11. 01`
+* Version : `a0.1.1`
 
 | Skill | Description                          |
 |:------|:-------------------------------------|
@@ -29,6 +32,14 @@ cd TECHIT_FinalProject && chmod +x run.sh
 Frontend
 ---
 
+| Lib       | Description                        | Feature |
+|:----------|:-----------------------------------|:--------|
+| Yew       | Frontend                           | csr     |
+| wasm      | WebAssembly                        | -       |
+| chrono    | Date & Time                        | -       |
+| serde     | Serialization & Deserialization    | default |
+| thiserror | Error Handling                     | -       |
+
 * Manual
     ```bash
     rustup install stable &&\ # Rust Install
@@ -40,3 +51,8 @@ Frontend
 
 Backend
 ---
+| Lib        | Description | Feature |
+|:-----------|:------------|:--------|
+| axum       | -           | -       |
+| actix-web  | -           | -       |
+| tokio      | -           | -       |
