@@ -1,61 +1,113 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -e
+
 
 #### Path
-DOCKER_INSTALL="./bin/docker-install.sh"
-KUBERNETES_INSTALL="./bin/kubernetes-install.sh"
-GIT_INSTALL="./bin/git-install.sh"
+CURRENT_PATH="$(pwd)"
 
+DOCKER_INSTALL="$CURRENT_PATH/bin/docker-install.sh"
+KUBERNETES_INSTALL="$CURRENT_PATH/bin/kubernetes-install.sh"
+GIT_INSTALL="$CURRENT_PATH/bin/git-install.sh"
+
+DOCKER_RUN="$CURRENT_PATH/bin/docker-run.sh"
+KUBERNETES_RUN="$CURRENT_PATH/bin/kubernetes-run.sh"
+
+#### String Check
+YES="^[yY]$"
+NO="^[nN]$"
 
 #### Install
 function Docker_install() {
-  source $DOCKER_INSTALL
+  if [[ -x $DOCKER_INSTALL ]]; then
+          source $DOCKER_INSTALL
+  else
+      echo "Docker Install File Not Found"
+      return 1
+  fi
 }
 
 function Kubernetes_install() {
-    source $KUBERNETES_INSTALL
+    if [[ -x $KUBERNETES_INSTALL ]]; then
+        source $KUBERNETES_INSTALL
+    else
+        echo "Kubernetes Install File Not Found"
+        return 1
+    fi
 }
 
 function Git_install() {
-    source $GIT_INSTALL
+    if [[ -x $GIT_INSTALL ]]; then
+        source $GIT_INSTALL
+    else
+        echo "Git Install File Not Found"
+        return 1
+    fi
 }
 
-
 function Install_menu() {
-  options=("Docker" "Kubernetes" "Git" "Exit")
-  select SELECT_MENU in "${options[@]}" do
+  options=("Docker" "Kubernetes" "Git" "Back")
+  select SELECT_MENU in "${options[@]}"
+  do
       case $SELECT_MENU in
           Docker) Docker_install ;;
           Kubernetes) Kubernetes_install ;;
           Git) Git_install ;;
-          Exit) Exit ;;
+          Back) Select_menu ;;
       esac
   done
 }
 
 #### Run
+#function Docker_run() {}
+#function Kubernetes_run() {}
 
 function Run_menu() {
-  options=("Docker" "Kubernetes" "Exit")
-  select SELECT_MENU in "${options[@]}" do
+  clear
+  options=("Docker" "Kubernetes" "Back")
+  select SELECT_MENU in "${options[@]}"
+  do
       case $SELECT_MENU in
-          Docker);;
-          Kubernetes);;
-          Exit) Exit ;;
+          Docker) Docker_run ;;
+          Kubernetes) Kubernetes_run ;;
+          Back) Select_menu ;;
       esac
   done
 }
 
+#### Update
+function Update() {
+  clear
+  options=("Ubuntu" "RHEL" "Back")
+  select SELECT_MENU in "${options[@]}"
+  do
+    case $SELECT_MENU in
+      Ubuntu) ;;
+      RHEL) ;;
+      Back) Select_menu ;;
+    esac
+  done
+}
+
+#### Exit
+# -n : 입력키 활당 + 1 : 한글자 허용
+# -s : 입력값에 대한 출력을 비공개
+# -r : 읽을수 있는지 여부
+# -p : 들여쓰기 없이 한라인에 사용
 function Exit() {
   read -n 1 -s -r -p "Press any key to exit..."
+  exit 1
 }
 
 function Select_menu() {
+  clear
   options=("Install" "Run" "Exit")
   PS3="Select Menu : "
-  select SELECT_MENU in "${options[@]}" do
+  select SELECT_MENU in "${options[@]}"
+  do
       case $SELECT_MENU in
           Install) Install_menu ;;
           Run) Run_menu ;;
+          Update) Update ;;
           Exit) Exit ;;
       esac
   done
