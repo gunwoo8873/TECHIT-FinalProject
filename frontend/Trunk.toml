@@ -1,3 +1,6 @@
 [serve]
 address = "127.0.0.1"
 port = 30000
+
+[build]
+dist = "dist"
