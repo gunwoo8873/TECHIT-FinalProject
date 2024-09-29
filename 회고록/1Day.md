@@ -1,10 +1,13 @@
-1일차
+1 ~ 2일차
 ---
 Frontend
 ---
   * Yew을 사용할 경우 Vertual Dom 요소를 어떻게 적용할지 고민
   * 프로젝트에 틀을 만들기 위해 `Signin`, `Register` 페이지는 미리 제작
     * Tutorial 기반으로 개발을 시작하고, 유연하게 새로운걸 개발을 목표
+    * Element CSS 적용 방식을 확인결과, Style파일을 생성할지 혹은 Page파일에 적용할지 의문  
+    => 결정 : 개별 Style파일을 생성하되 공통적인 Header, Footer 부분은 조금 고려해야 할거 같다.
+    * Trunk 특성상 localhost Port 넘버를 8080으로 사용하기 때문에 Trunk.toml파일에서 8080외 포트넘버를 지정해야 하는 문제
     
       ```markdown
       /root
