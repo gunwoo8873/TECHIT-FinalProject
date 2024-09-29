@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: frontend  # checkout할 경로 지정
 
       - name: Install Rustup
         run: rustup install stable && rustup default stable
@@ -22,9 +24,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: frontend  # checkout할 경로 지정
 
       - name: Cargo build
-        run: cd frontend && cargo build --release
+        run: |
+          cd frontend
+          cargo build --release
 
       - name: Trunk run
-        run: trunk serve
+        run: |
+          cd frontend
+          trunk serve
