@@ -1,6 +1,6 @@
 use yew::{function_component, html, Html};
-use yew_router::prelude::*;
-use crate::router::Route;
+// use yew_router::prelude::*;
+// use crate::router::Route;
 
 #[function_component(Register)]
 pub fn register() -> Html {
