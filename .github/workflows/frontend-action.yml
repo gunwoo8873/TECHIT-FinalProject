@@ -16,7 +16,10 @@ jobs:
           path: frontend  # checkout할 경로 지정
 
       - name: Install Rustup
-        run: rustup install stable && rustup default stable
+        run: | 
+          rustup install stable &&\ 
+          rustup default stable &&\
+          cargo install trunk
 
   Trunk-run:
     runs-on: ubuntu-latest
