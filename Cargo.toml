@@ -9,4 +9,6 @@ edition = "2021"
 
 
 [workspace]
-members = ["backend", "frontend"]
+members = [
+    "./frontend",
+]
