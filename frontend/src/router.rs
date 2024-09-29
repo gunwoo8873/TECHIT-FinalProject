@@ -4,7 +4,7 @@ use yew_router::prelude::*;
 //// Views/*.html
 use crate::views::{
     amm::AMM, index::Index, notfound::NotFound,
-    auth::{signin::Signin, register::Register}
+    auth::{signin::Signin, register::Register, directions::Directions},
 };
 
 #[derive(Debug, PartialEq, Clone, Routable)]
@@ -23,6 +23,8 @@ pub enum Route {
     Signin,
     #[at("/register")]
     Register,
+    #[at("/directions")]
+    Directions,
 }
 
 pub fn switch(routes: Route) -> Html {
@@ -31,6 +33,7 @@ pub fn switch(routes: Route) -> Html {
         Route::AMM => html! {<AMM/>},
         Route::Signin => html! {<Signin/>},
         Route::Register => html! {<Register/>},
+        Route::Directions => html! {<Directions/>},
         Route::NotFound => html! {<NotFound/>},
     }
 }
