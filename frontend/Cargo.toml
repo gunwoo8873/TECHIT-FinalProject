@@ -18,6 +18,9 @@ web-sys = {version = "0.3.70"}
 yew = {version = "0.21.0" , features = ["csr"]}
 yew-router = {version = "0.18.0"}
 
+#### HTML Style
+stylist = "0.13.0"
+
 #### Serde
 serde = {version = "1.0.210", features = ["default"]}
 serde_json = {version = "1.0.128"}
