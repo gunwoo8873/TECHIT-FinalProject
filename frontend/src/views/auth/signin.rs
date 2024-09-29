@@ -6,25 +6,25 @@ use crate::router::Route;
 pub fn signin() -> Html {
     html! {
         <>
-        <header>
-            <div class="header__menu">
-                <Link<Route> to={Route::Index}>{ "Home" }</Link<Route>>
-                <Link<Route> to={Route::AMM}>{ "자산관리" }</Link<Route>>
-            </div>
-            <div>
-                //// Dynamic User Signin & Register Feature
-                <Link<Route> to={Route::Signin}>{ "signin" }</Link<Route>>
-                <Link<Route> to={Route::Register}>{ "register" }</Link<Route>>
-            </div>
-        </header>
         <main>
             <section>
                 <form>
-                    <label for="username">{"Username:"}</label>
+                    //// TODO: CSS 적용 및 Handler 구현
+                    <label for="username">{"Username"}</label>
                     <input type="text" id="username" name="username" />
-                    <label for="password">{"Password:"}</label>
+                    <label for="password">{"Password"}</label>
                     <input type="password" id="password" name="password" />
-                    <button type="submit">{"Sign In"}</button>
+                    <div>
+                        <button type="submit">{"Sign In"}</button>
+                        <Link<Route> to={Route::Index}>
+                            <button type="submit">{"Cancel"}</button>
+                        </Link<Route>>
+                    </div>
+                    <div>
+                        <Link<Route> to={Route::Directions}>{"Forgot Password?"}</Link<Route>>
+                        <input type="checkbox" name="rememberid" id="rememberid" />
+                        <label for="rememberid">{"Remember me"}</label>
+                    </div>
                 </form>
             </section>
         </main>
