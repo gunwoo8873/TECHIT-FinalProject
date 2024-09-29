@@ -1,20 +1,20 @@
-use yew::{function_component, html, Html};
+use yew::*;
 use yew_router::prelude::*;
 use crate::router::Route;
-// use std::{cell::RefCell, rc::Rc};
-// use crate::api::types::{User, AppState};
+use crate::views::css::{
+    header_style::{*}, footer_style::{*}
+};
 
 #[function_component(Index)]
 pub fn index() -> Html {
     html! {
         <>
-        // <form action={format!("/views/{}", id)} method="get">
-        <header>
+        <header style={header()}>
              <div class="header__menu">
                 <Link<Route> to={Route::Index}>{ "Home" }</Link<Route>>
                 <Link<Route> to={Route::AMM}>{ "자산관리" }</Link<Route>>
             </div>
-            <div>
+            <div class="header__menu">
                 //// Dynamic User Signin & Register Feature
                 <Link<Route> to={Route::Signin}>{ "signin" }</Link<Route>>
                 <Link<Route> to={Route::Register}>{ "register" }</Link<Route>>
@@ -26,10 +26,9 @@ pub fn index() -> Html {
                 <p>{"This is the main content of the page."}</p>
             </section>
         </main>
-        <footer>
-            <h1>{"© 2024 MyWebsite"}</h1>
+        <footer style={footer()}>
+            <h4>{"© 2024 MyWebsite"}</h4>
         </footer>
-        // </form>
         </>
     }
 }
