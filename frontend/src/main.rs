@@ -1,5 +1,5 @@
 // mod api;
-mod views;
+mod pages;
 mod router;
 mod app;
 
