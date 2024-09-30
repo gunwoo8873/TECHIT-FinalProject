@@ -9,7 +9,6 @@ pub fn signin() -> Html {
         <main>
             <section>
                 <form>
-                    //// TODO: CSS 적용 및 Handler 구현
                     <label for="username">{"Username"}</label>
                     <input type="text" id="username" name="username" />
                     <label for="password">{"Password"}</label>
