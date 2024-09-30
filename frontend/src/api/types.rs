@@ -26,3 +26,6 @@ pub struct UserRegister {
     pub address: String,
     pub created_at: DateTime<Utc>,
 }
+
+#[derive(Debug)]
+pub struct DB {}
