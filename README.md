@@ -1,10 +1,12 @@
 # TECHIT FinalProject
-* Title   : `-`
+* Title       : `Hybrid Cloud & Multi Cloud`
 * Description : `-`
-* Date    : 
-  * Setup   : `2024. 09. 27 ~ 30`
-  * Devploy : `2024. 09. 30 ~ 11. 01`
-* Version : `a0.1.1`
+* Date        : 
+  * Setup     : `2024. 09. 27 ~ 30`
+  * Devploy   : `2024. 09. 30 ~ 11. 01`
+* Member      : `박종찬, 손채린, 윤현석, 정소은, 최건우`
+* Position    : `PM, PL, CI/CD, Monitoring, Infra`
+* Version     : `a0.1.1`
 
 | Skill | Description                          |
 |:------|:-------------------------------------|
@@ -56,3 +58,10 @@ Backend
 | axum       | -           | -       |
 | actix-web  | -           | -       |
 | tokio      | -           | -       |
+| Postgresql | -           | -       |
+
+AWS
+---
+| Lib            | Description         | Feature | Link              |
+|:---------------|:--------------------|:--------|:------------------|
+| lambda_runtime | -                   | -       | [Lambda Github](https://github.com/awslabs/aws-lambda-rust-runtime) |
