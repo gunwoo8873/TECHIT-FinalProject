@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-
 #### Path
 CURRENT_PATH="$(pwd)"
 
@@ -17,7 +16,7 @@ YES="^[yY]$"
 NO="^[nN]$"
 
 #### Install
-function Docker_install() {
+function Docker_Install() {
   if [[ -x $DOCKER_INSTALL ]]; then
           source $DOCKER_INSTALL
   else
@@ -26,7 +25,7 @@ function Docker_install() {
   fi
 }
 
-function Kubernetes_install() {
+function Kubernetes_Install() {
     if [[ -x $KUBERNETES_INSTALL ]]; then
         source $KUBERNETES_INSTALL
     else
@@ -35,7 +34,7 @@ function Kubernetes_install() {
     fi
 }
 
-function Git_install() {
+function Git_Install() {
     if [[ -x $GIT_INSTALL ]]; then
         source $GIT_INSTALL
     else
@@ -44,14 +43,17 @@ function Git_install() {
     fi
 }
 
+function Rust_Install() {}
+
 function Install_menu() {
-  options=("Docker" "Kubernetes" "Git" "Back")
+  options=("Docker" "Kubernetes" "Git" "Rust" "Back")
   select SELECT_MENU in "${options[@]}"
   do
       case $SELECT_MENU in
-          Docker) Docker_install ;;
-          Kubernetes) Kubernetes_install ;;
-          Git) Git_install ;;
+          Docker) Docker_Install ;;
+          Kubernetes) Kubernetes_Install ;;
+          Git) Git_Install ;;
+          Rust) Rust_Install ;;
           Back) Select_menu ;;
       esac
   done
