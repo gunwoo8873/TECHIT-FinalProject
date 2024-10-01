@@ -1,6 +1,11 @@
 mod server;
+mod api;
+
+fn main() {
+    server_run();
+}
 
 #[actix_web::main]
-async fn main() {
-    server::run_server().await.unwrap();
+async fn server_run() {
+    server::run_server().await.unwrap()
 }
