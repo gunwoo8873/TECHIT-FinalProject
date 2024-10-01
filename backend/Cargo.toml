@@ -10,8 +10,16 @@ edition = "2021"
 actix-web = {version = "4.9.0"}
 actix-cors = {version = "0.7.0"}
 
+#### Database
+sqlx = {version = "0.8.2", features = ["runtime-tokio", "postgres"]}
+tokio = {version = "1.40.0", features = ["full"]}
+
+#### Json
+serde_json = {version = "1.0.128"}
+
 #### ENV Lib
 env_logger = {version = "0.11.5"}
+dotenv = {version = "0.15.0"}
 
 #### DateTime Lib
 chrono = {version = "0.4.38", features = ["serde"]}
