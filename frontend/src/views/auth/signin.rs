@@ -1,6 +1,9 @@
 use yew::{function_component, html, Html};
 use yew_router::prelude::*;
-use crate::router::Route;
+use crate::{
+    router::Route,
+    api::types::{UserSignin}
+};
 
 #[function_component(Signin)]
 pub fn signin() -> Html {

@@ -1,6 +1,8 @@
 use yew::{function_component, html, Html};
-// use yew_router::prelude::*;
-// use crate::router::Route;
+use crate::{
+    router::Route,
+    api::types::{UserRegister}
+};
 
 #[function_component(Register)]
 pub fn register() -> Html {
