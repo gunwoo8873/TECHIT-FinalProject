@@ -20,9 +20,9 @@ Frontend
 * FP1
   * Non
 * FP2
-  * Signin, Register CSS 디자인
+  * ~~Signin, Register CSS 디자인~~
 * FP3
-  * Index, Header, Footer CSS 디자인
+  * ~~Index, Header, Footer CSS 디자인~~
 
 Backend
 ---
