@@ -1,8 +1,8 @@
-//// pages/*
+//// views/*
 pub mod index;
 pub mod notfound;
 pub mod amm;
 
-//// pages/*/*
+//// views/*/*
 pub mod auth;
 pub mod css;
