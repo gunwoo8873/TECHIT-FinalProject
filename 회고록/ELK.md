@@ -43,32 +43,32 @@ ELK [Elasticsearch, Logstash, Kibana]
 ---
 * Observability
   * Log, Metric, Traces
-    *  
+    * 
   * Application Performance Monitoring[APM]
-    *  
+    * 
   * Real User Monitoring[RUM]
-    *  
+    * 
   * OpenTelemetry
-    *  
+    * 
 ---
 * Search
   * Vector Database
-    *  
+    * 
   * Full-Text Search
-    *  
+    * 
   * Semantic Search
-    *  
+    * 
   * Hybrid Search
-    *  
+    * 
   * Build Search Experiences
-    *  
+    * 
   * Retrieval augmented Generation[RAG]
     * 
 ---
 * Security
   * Security Information and Event management[SIEM]
-    *  
+    * 
   * Endpoint security
-    *  
+    * 
   * Threat Hunting
-    *  
+    * 
