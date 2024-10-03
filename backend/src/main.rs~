@@ -2,5 +2,9 @@ use backend::server::_server;
 
 #[actix_web::main]
 async fn main() {
+    server_run();
+}
+
+async fn server_run() {
     _server().await.unwrap()
 }

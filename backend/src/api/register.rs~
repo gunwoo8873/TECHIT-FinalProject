@@ -1,0 +1,9 @@
+pub fn main_style() -> String {
+    String::from("\
+        display: flex;
+        display-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+    ")
+}

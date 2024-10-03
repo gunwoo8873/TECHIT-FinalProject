@@ -1,9 +1,5 @@
-mod views;
-mod router;
-mod app;
-mod api;
-// mod utils;
+use frontend::route::App;
 
-pub fn main() {
-    yew::Renderer::<app::App>::new().render();
+fn main() {
+    yew::Renderer::<App>::new().render();
 }

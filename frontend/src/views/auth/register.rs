@@ -1,7 +1,10 @@
-use yew::{function_component, html, Html};
+use yew::{
+    function_component, html, Html
+};
+use yew_router::prelude::*;
 use crate::{
-    router::Route,
-    api::types::{UserRegister}
+    // views::style::register_style::main,
+    route::Route
 };
 
 #[function_component(Register)]
@@ -30,11 +33,15 @@ pub fn register() -> Html {
                 <label for="user_address">{"Address"}</label>
                 <input type="text" id="user_address" class="register_input" name="address"/>
 
+                <button><Link<Route> to={Route::Index}>{ "Cancle" }</Link<Route>></button>
                 <button type="submit" id="register_btn">{"Register"}</button>
             </form>
         </div>
         </section>
         </main>
+            <footer>
+                <h4>{ "© 2024 MyWebsite" }</h4>
+            </footer>
         </>
     }
 }

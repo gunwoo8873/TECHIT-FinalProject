@@ -1,2 +1,2 @@
 pub mod types;
-pub mod user_api;
+pub mod github_other;

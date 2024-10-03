@@ -6,25 +6,27 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-#### DateTime Lib
-chrono = {version = "0.4.38"}
+#### Yew
+yew = {version = "0.21.0", features = ["csr"]}
+yew-router = {version = "0.18.0"}
+lightningcss = {version = "1.0.0-alpha.59"}
+stylist = {version = "0.13.0"}
 
 #### Webassambly
 wasm-bindgen = {version = "0.2.93"}
 wasm-bindgen-futures = {version = "0.4.43"}
-web-sys = {version = "0.3.70"}
+web-sys = {version = "0.3.70", features = ["Request", "RequestInit", "Response"]}
 
-#### Yew
-yew = {version = "0.21.0" , features = ["csr"]}
-yew-router = {version = "0.18.0"}
-
-#### HTML Style
-stylist = "0.13.0"
+#### Wab Network
+gloo-net = {version = "0.6.0", features = ["http", "serde_json"]}
 
 #### Serde
-serde = {version = "1.0.210", features = ["default"]}
-serde_json = {version = "1.0.128"}
-serde_derive = {version = "1.0.210"}
+#serde = {version = "1.0.210", features = ["default"]}
+#serde_json = {version = "1.0.128"}
+#serde_derive = {version = "1.0.210"}
+
+#### DateTime Lib
+chrono = {version = "0.4.38"}
 
 #### Error
 thiserror = {version = "1.0.38"}

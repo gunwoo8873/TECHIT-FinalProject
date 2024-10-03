@@ -1,29 +1,31 @@
 use yew::*;
 use yew_router::prelude::*;
-use crate::router::Route;
-use crate::views::css::{
-    header_style::*, footer_style::*,
+use crate::{
+    views::style::{
+        // stylesheet::header_style,
+    },
+    route::Route,
+    // handlers::{
+    //     index_handler
+    // },
 };
 
 #[function_component(Index)]
 pub fn index() -> Html {
     html! {
         <>
-            <header style={header()}>
+            <header>
                 <div id="header__menu">
                     <Link<Route> to={Route::Index}>{ "Home" }</Link<Route>>
-                    <Link<Route> to={Route::AMM}>{ "AMM" }</Link<Route>>
-                    <Link<Route> to={Route::Directions}>{ "Directions" }</Link<Route>>
                 </div>
                 <div id="header__account">
-                    <Link<Route> to={Route::Signin}>{ "Sign In" }</Link<Route>>
-                    <Link<Route> to={Route::Register}>{ "Register" }</Link<Route>>
+                    <Link<Route> to={Route::Signin} class={"register_style"}>{ "Sign In" }</Link<Route>>
+                    <Link<Route> to={Route::Register} class={"register_style"}>{ "Register" }</Link<Route>>
                 </div>
             </header>
             <main>
                 <section>
-                    <h1>{ "Welcome to the Index Page" }</h1>
-                    <p>{ "This is the main content of the page." }</p>
+                    <p>{ "Welcome to Bank" }</p>
                 </section>
             </main>
             <footer>

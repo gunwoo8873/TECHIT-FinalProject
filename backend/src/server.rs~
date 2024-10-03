@@ -26,8 +26,8 @@ pub async fn _server() -> Result<()> {
         App::new()
             .app_data(web::Data::new(pool.clone()))
             .service(web::scope("/")
-                .service(web::resource("/register/{id}"))
-                .service(web::resource("/signin/{id}"))
+                .service(web::resource("/register/{}"))
+                .service(web::resource("/signin/{}"))
             )
     })
         .bind((host.as_str(), port))?

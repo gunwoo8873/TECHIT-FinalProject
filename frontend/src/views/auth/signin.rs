@@ -1,8 +1,9 @@
 use yew::{function_component, html, Html};
 use yew_router::prelude::*;
 use crate::{
-    router::Route,
-    api::types::{UserSignin}
+    // views::style::{
+    // },
+    route::Route
 };
 
 #[function_component(Signin)]
@@ -23,7 +24,7 @@ pub fn signin() -> Html {
                         </Link<Route>>
                     </div>
                     <div>
-                        <Link<Route> to={Route::Directions}>{"Forgot Password?"}</Link<Route>>
+                        // <Link<Route> to={Route::Directions}>{"Forgot Password?"}</Link<Route>>
                         <input type="checkbox" name="rememberid" id="rememberid" />
                         <label for="rememberid">{"Remember me"}</label>
                     </div>
