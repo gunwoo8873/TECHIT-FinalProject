@@ -43,32 +43,34 @@ ELK [Elasticsearch, Logstash, Kibana]
 ---
 * Observability
   * Log, Metric, Traces
-    * 
+    * 애플리케이션, 시스템, 서비스에서 로그, 메트릭, 추적, 수집, 저장 및 분석 한다.
   * Application Performance Monitoring[APM]
-    * 
+    * S/W Application의 Performance 모니터링하고 분석 한다.
   * Real User Monitoring[RUM]
-    * 
+    * Web Application과 User간 상호작용을 모니터링, 분석, 정량화 한다.
   * OpenTelemetry
-    * 
+    * 기존 계측을 재사용하여 Open Telemetry 표준을 사용해 Elastic Stack으로 텔레메트리 데이터를 전송
 ---
 * Search
   * Vector Database
-    * 
+    * 벡터화된 데이터를 저장하고 검색하여, 내장 및 타사 자연어 처리[NLP] 모델을 사용하여 벡터 임베딩을 생성
   * Full-Text Search
-    * 
+    * 역색인, 토큰환, 텍스트 분석을 사용하여 빠르고 관련성 높은 전체 텍스트 검색 솔루션 구축
   * Semantic Search
-    * 
+    * 동의어, 밀집 벡터 임베딩, 학습된 희소 쿼리-문서를 확장하여 사용하고 검색 쿼리의 의도와 맥락적 의미를 이해
   * Hybrid Search
-    * 
+    * 최신 알고리즘을 사용하여 전체 텍스트 검색과 벡터 검색을 결합
   * Build Search Experiences
-    * 
+    * 앱이나 웹시아트에 하이브리드 검색 기능을 추가허간 조직의 내부 데이터 소스를 대상으로 엔터프라이즈 검색 엔진 구축
   * Retrieval augmented Generation[RAG]
-    * 
+    * ElasticSearch를 검색 엔진으로 사용하여 생성 AI모델을 더 관련성 높고 최신의 또는 독점 데이터로 보완
+  * Geospatial Search
+    * 지리 공간 쿼리를 사용하여 위치를 검색하고 공간 관계를 계산
 ---
 * Security
   * Security Information and Event management[SIEM]
-    * 
+    * 애플리케이션, 시스템, 서비스에서 보안 데이터를 수집, 저장, 분석 수행
   * Endpoint security
-    * 
+    * 엔드포인트 보안 데이터를 모니터링하고 분석
   * Threat Hunting
-    * 
+    * 데이터를 검색하고 분석하여 보안 위협을 탐지하고 대응
