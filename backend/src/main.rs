@@ -1,6 +1,6 @@
-use backend::server::_server;
+use backend::server::_run;
 
 #[actix_web::main]
 async fn main() {
-    _server().await.unwrap()
+    _run().await.unwrap()
 }

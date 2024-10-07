@@ -1,13 +1,9 @@
-use yew::*;
-use yew_router::prelude::*;
-use crate::{
-    views::style::{
-        // stylesheet::header_style,
+use {
+    yew::prelude::*,
+    yew_router::prelude::*,
+    crate::{
+        route::Route,
     },
-    route::Route,
-    // handlers::{
-    //     index_handler
-    // },
 };
 
 #[function_component(Index)]
@@ -19,8 +15,8 @@ pub fn index() -> Html {
                     <Link<Route> to={Route::Index}>{ "Home" }</Link<Route>>
                 </div>
                 <div id="header__account">
-                    <Link<Route> to={Route::Signin} class={"register_style"}>{ "Sign In" }</Link<Route>>
-                    <Link<Route> to={Route::Register} class={"register_style"}>{ "Register" }</Link<Route>>
+                    <Link<Route> to={Route::Signin}>{ "Sign In" }</Link<Route>>
+                    <Link<Route> to={Route::Register}>{ "Register" }</Link<Route>>
                 </div>
             </header>
             <main>

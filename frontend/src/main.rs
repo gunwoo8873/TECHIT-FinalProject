@@ -1,5 +1,6 @@
-use frontend::route::App;
+use frontend::route::_run;
+
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    _run();
 }

@@ -6,8 +6,19 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+#### Server API
 actix-web = {version = "4.9.0"}
 actix-cors = {version = "0.7.0"}
+
+#### Database
 sqlx = {version = "0.8.2", features = ["postgres", "runtime-tokio"]}
+
+#### Utils
 dotenv = {version = "0.15.0"}
-tokio = {version = "1.40.0", features = ["full"]}
+
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_derive = { workspace = true }
+
+#reqwest = {version = "0.12.8", features = ["json"]}

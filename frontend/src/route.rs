@@ -1,19 +1,17 @@
-use yew::prelude::*;
-use yew_router::prelude::*;
-use crate::views::{
-    index::Index, notfound::NotFound,
-    auth::{signin::Signin, register::Register}
+use {
+    yew::prelude::*,
+    yew_router::prelude::*,
+    crate::views::{
+        index::Index,
+        notfound::NotFound,
+        auth::{signin::Signin, register::Register},
+    },
 };
 
 #[derive(Debug, PartialEq, Clone, Routable)]
 pub enum Route {
     #[at("/")]
     Index,
-
-    #[at("/signin")]
-    Signin,
-    #[at("/register")]
-    Register,
 
     #[not_found]
     #[at("/notfound")]
@@ -23,8 +21,6 @@ pub enum Route {
 pub fn switch(routes: Route) -> Html {
     match routes {
         Route::Index => html! {<Index />},
-        Route::Signin => html! {<Signin />},
-        Route::Register => html! {<Register />},
         Route::NotFound => html! {<NotFound />},
     }
 }
@@ -37,4 +33,8 @@ pub fn app() -> Html {
             <Switch<Route> render={switch}/>
         </BrowserRouter>
     }
+}
+
+pub fn _run() {
+    yew::Renderer::<App>::new().render();
 }

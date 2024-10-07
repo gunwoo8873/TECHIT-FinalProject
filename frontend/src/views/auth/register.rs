@@ -1,47 +1,68 @@
-use yew::{
-    function_component, html, Html
+use {
+    yew::prelude::*,
+    yew_router::prelude::*,
+    serde::{Deserialize, Serialize},
+    crate::{
+        route::Route,
+    },
 };
-use yew_router::prelude::*;
-use crate::{
-    // views::style::register_style::main,
-    route::Route
-};
+
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+struct RegisterForm {
+    user_name: String,
+    user_id: String,
+    user_email: String,
+    user_passwrod: String,
+    check_passwrod: String,
+    user_phone: String,
+    remember: bool,
+}
+fn register_user(user: &RegisterForm) {
+
+}
 
 #[function_component(Register)]
 pub fn register() -> Html {
     html! {
         <>
-        <main>
-        <section>
-        <div>
-            <form>
-                <label for="user_id">{"Userid"}</label>
-                <input type="text" id="user_id" class="register_input" name="userid"/>
-
-                <label for="user_email">{"Email"}</label>
-                <input type="email" id="user_email" class="register_input" name="useremail"/>
-
-                <label for="user_ps">{"Password"}</label>
-                <input type="password" id="user_ps" class="register_input" name="password"/>
-
-                <label for="user_ps_check">{"Password Check"}</label>
-                <input type="password" id="user_ps_check" class="register_input" name="password_check"/>
-
-                <label for="user_phone">{"Phone Number"}</label>
-                <input type="text" id="user_phone" class="register_input" name="phone"/>
-
-                <label for="user_address">{"Address"}</label>
-                <input type="text" id="user_address" class="register_input" name="address"/>
-
-                <button><Link<Route> to={Route::Index}>{ "Cancle" }</Link<Route>></button>
-                <button type="submit" id="register_btn">{"Register"}</button>
-            </form>
-        </div>
-        </section>
-        </main>
-            <footer>
-                <h4>{ "© 2024 MyWebsite" }</h4>
-            </footer>
+            <main>
+                <section>
+                    <form>
+                        <div>
+                            <label for="user_name">{"Name : "}</label>
+                            <input type="text" name="user_name" placeholder="User Name" />
+                        </div>
+                        <div>
+                            <label for="user_id">{"ID : "}</label>
+                            <input type="text" name="user_id" placeholder="User Name" />
+                        </div>
+                        <div>
+                            <label for="user_email">{"Email : "}</label>
+                            <input type="text" name="user_email" placeholder="abc@abc.com" />
+                        </div>
+                        <div>
+                            <label for="user_passwrod">{"Password : "}</label>
+                            <input type="text" name="user_passwrod" placeholder="*********" />
+                        </div>
+                        <div>
+                            <label for="check_passwrod">{"Confirm Password : "}</label>
+                            <input type="text" name="check_passwrod" placeholder="*********" />
+                        </div>
+                        <div>
+                            <label for="user_phone">{"Phone : "}</label>
+                            <input type="text" name="user_phone" placeholder="010-1234-5678" />
+                        </div>
+                        <div>
+                            <button>{"Forgot Password"}</button>
+                            <input type="checkbox" name="remember" />{"Remember me"}
+                        </div>
+                        <div>
+                            <button>{"Register"}</button>
+                            <Link<Route> to={Route::Index}>{ "Cancel" }</Link<Route>>
+                        </div>
+                    </form>
+                </section>
+            </main>
         </>
     }
 }

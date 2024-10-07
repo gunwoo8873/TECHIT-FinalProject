@@ -9,8 +9,6 @@ edition = "2021"
 #### Yew
 yew = {version = "0.21.0", features = ["csr"]}
 yew-router = {version = "0.18.0"}
-lightningcss = {version = "1.0.0-alpha.59"}
-stylist = {version = "0.13.0"}
 
 #### Webassambly
 wasm-bindgen = {version = "0.2.93"}
@@ -19,16 +17,17 @@ web-sys = {version = "0.3.70", features = ["Request", "RequestInit", "Response"]
 
 #### Wab Network
 gloo-net = {version = "0.6.0", features = ["http", "serde_json"]}
+#ehttp = {version = "0.5.0"}
 
 #### Serde
-serde = {version = "1.0.210", features = ["derive"]}
-#serde_json = {version = "1.0.128"}
-#serde_derive = {version = "1.0.210"}
 anyhow = {version = "1.0.89"}
 
-#### DateTime Lib
-chrono = {version = "0.4.38"}
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_derive = { workspace = true }
 
 #### Error
-thiserror = {version = "1.0.38"}
-log = {version = "0.4.22"}
+#thiserror = {version = "1.0.38"}
+#log = {version = "0.4.22"}
+#regex = "1.11.0"
+#reqwest = "0.12.8"
