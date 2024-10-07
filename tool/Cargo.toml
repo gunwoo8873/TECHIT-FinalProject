@@ -18,3 +18,12 @@ features = ["latest"]
 [dependencies.kube]
 version = "0.95.0"
 features = ["derive"]
+
+[dependencies]
+tokio = { workspace = true }
+
+[dev-dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_derive = { workspace = true }
+dotenv = {workspace = true}
