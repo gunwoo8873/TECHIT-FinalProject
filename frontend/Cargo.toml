@@ -34,8 +34,8 @@ features = ["Request", "RequestInit", "Response"]
 version = "0.6.0"
 #ehttp = {version = "0.5.0"}
 
-#### Serde
-anyhow = {version = "1.0.89"}
+[dependencies.anyhow]
+version = "1.0.89"
 
 #### Error
 #thiserror = {version = "1.0.38"}

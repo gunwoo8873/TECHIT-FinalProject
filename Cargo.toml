@@ -12,6 +12,7 @@ members = [
     "./tool",
 ]
 
+#### Server API Lib
 [workspace.dependencies.tokio]
 version = "1.40.0"
 features = ["full"]
@@ -27,6 +28,7 @@ version = "1.0.128"
 [workspace.dependencies.serde_derive]
 version = "1.0.210"
 
+#### Utils
 [workspace.dependencies.chrono]
 version = "0.4.38"
 
