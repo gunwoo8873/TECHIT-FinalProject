@@ -15,15 +15,14 @@
 | AWS   | Cloud Infra `EC2, EKS, S3, RDS`      |
 
 ```bash
+rustup install stable &&\
+rustup default stable &&\
 git clone https://github.com/gunwoo8873/TECHIT-FinalProject.git
 ```
 
-Install & Run Script
+Install & Run Script [Stop]
 ---
-```bash
-cd TECHIT_FinalProject && chmod +x run.sh
-./run.sh
-```
+
 * Docker Install
 * Kubernetes Install
 * Git Install
@@ -31,34 +30,69 @@ cd TECHIT_FinalProject && chmod +x run.sh
 * Kubernetes Run
 * Exit
 
-Frontend
+```bash
+cd TECHIT_FinalProject && chmod +x run.sh
+./run.sh
+```
+
+Workspace Lib
+---
+| Lib          | Workspace               | Feature |
+|:-------------|:------------------------|:--------|
+| Serde        | Frontend, Backend, Tool | csr     |
+| Serde_Json   | Frontend, Backend, Tool | -       |
+| Serde_derive | Frontend, Backend, Tool | -       |
+| Tokio        | Backend, Tool           | -       |
+| Chrono       | Frontend, Backend, Tool | -       |
+
+* Manual
+    ```bash
+    cargo clean \
+    cargo build --release # Rust Build
+    ```
+
+Frontend [Stop]
 ---
 
 | Lib       | Description                        | Feature |
 |:----------|:-----------------------------------|:--------|
 | Yew       | Frontend                           | csr     |
 | wasm      | WebAssembly                        | -       |
-| chrono    | Date & Time                        | -       |
-| serde     | Serialization & Deserialization    | default |
 | thiserror | Error Handling                     | -       |
 
 * Manual
     ```bash
-    rustup install stable &&\ # Rust Install
-    rustup default stable &&\ # Rust Run Default
     cd frontend &&\
-    cargo build --release &&\ # Rust Build
-    trunk serve --open # Yew Run CMD
+    trunk serve # Yew Run CMD
     ```
 
-Backend
+Backend [Stop]
 ---
-| Lib        | Description | Feature |
-|:-----------|:------------|:--------|
-| axum       | -           | -       |
-| actix-web  | -           | -       |
-| tokio      | -           | -       |
-| Postgresql | -           | -       |
+| Lib       | Description | Feature |
+|:----------|:------------|:--------|
+| axum      | -           | -       |
+| actix-web | -           | -       |
+| sqlx      | -           | -       |
+
+* Manual
+    ```bash
+    cd backend &&\
+    cargo run # Yew Run CMD
+    ```
+
+
+Tool
+---
+| Tool       | Description |
+|:-----------|:------------|
+| Kubernetes | Simple Tool |
+| Linux      | Simple Tool |
+
+* Manual
+  ```bash
+  cd tool &&\
+  cargo run
+  ```
 
 AWS
 ---
