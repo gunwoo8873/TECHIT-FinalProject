@@ -15,8 +15,8 @@ pub fn index() -> Html {
                     <Link<Route> to={Route::Index}>{ "Home" }</Link<Route>>
                 </div>
                 <div id="header__account">
-                    <Link<Route> to={Route::Signin}>{ "Sign In" }</Link<Route>>
-                    <Link<Route> to={Route::Register}>{ "Register" }</Link<Route>>
+                    // <Link<Route> to={Route::Signin}>{ "Sign In" }</Link<Route>>
+                    // <Link<Route> to={Route::Register}>{ "Register" }</Link<Route>>
                 </div>
             </header>
             <main>
