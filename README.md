@@ -20,7 +20,7 @@ rustup default stable &&\
 git clone https://github.com/gunwoo8873/TECHIT-FinalProject.git
 ```
 
-Install & Run Script [Stop]
+Linux Install & Run Script [Stop]
 ---
 
 * Docker Install
@@ -31,7 +31,8 @@ Install & Run Script [Stop]
 * Exit
 
 ```bash
-cd TECHIT_FinalProject && chmod +x run.sh
+cd TECHIT_FinalProject &&\
+ chmod +x run.sh &&\
 ./run.sh
 ```
 
@@ -88,9 +89,16 @@ Tool
 | Kubernetes | Simple Tool |
 | Linux      | Simple Tool |
 
+| Lib         | Description    | Feature         |
+|:------------|:---------------|:----------------|
+| kube        | Kubectl Lib    | Derive, Runtime |
+| k8s-openapi | Kubernetes API | Latest          |
+| ratatui     | Terminal UI    | -               |
+| crossterm   | -              | -               |
+
 * Manual
   ```bash
-  cd tool &&\
+  cd terminal &&\
   cargo run
   ```
 
