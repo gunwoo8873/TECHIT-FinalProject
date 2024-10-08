@@ -9,7 +9,7 @@ edition = "2021"
 members = [
     "./frontend",
     "./backend",
-    "./tool",
+    "./kubernetes",
 ]
 
 #### Server API Lib
