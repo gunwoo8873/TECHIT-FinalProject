@@ -4,7 +4,7 @@ use {
     crate::views::{
         index::Index,
         notfound::NotFound,
-        auth::{signin::Signin, register::Register},
+        // auth::{signin::Signin, register::Register},
     },
 };
 
