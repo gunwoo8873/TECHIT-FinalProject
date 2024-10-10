@@ -43,7 +43,7 @@ Workspace Lib
 | Serde        | Frontend, Backend, Tool | csr     |
 | Serde_Json   | Frontend, Backend, Tool | -       |
 | Serde_derive | Frontend, Backend, Tool | -       |
-| Tokio        | Backend, Tool           | -       |
+| Tokio        | Backend, Tool           | full    |
 | Chrono       | Frontend, Backend, Tool | -       |
 
 * Manual
@@ -82,7 +82,7 @@ Backend [Stop]
     ```
 
 
-Tool
+Kubernetes
 ---
 | Tool       | Description |
 |:-----------|:------------|
@@ -98,7 +98,7 @@ Tool
 
 * Manual
   ```bash
-  cd terminal &&\
+  cd kubernetes &&\
   cargo run
   ```
 
