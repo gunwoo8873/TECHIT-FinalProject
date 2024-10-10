@@ -25,6 +25,9 @@ features = ["derive"]
 [workspace.dependencies.serde_json]
 version = "1.0.128"
 
+[workspace.dependencies.serde_yaml]
+version = "0.9.33"
+
 [workspace.dependencies.serde_derive]
 version = "1.0.210"
 
