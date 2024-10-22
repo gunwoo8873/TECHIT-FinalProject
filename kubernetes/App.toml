@@ -1,0 +1,5 @@
+shadow = false
+borders = "simple"
+
+[colors]
+background = ["#000000"]
