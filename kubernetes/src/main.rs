@@ -6,8 +6,9 @@ use cursive::{
 };
 // use std::sync::atomic::{AtomicUsize, Ordering};
 use kubernetes::config::*;
+use std::error::Error;
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     let mut app = default();
 
     //// Global Theme Setup
@@ -17,6 +18,7 @@ fn main() {
     app.add_global_callback(Key::Esc, |c| c.add_layer(
         Dialog::new()
             .title("Quit")
+            .content(TextView::new("Are you sure?"))
             .button("Yes", yes)
             .button("No", no)
     ));
@@ -28,7 +30,10 @@ fn main() {
         .add_subtree(
             "Resource",
             menu::Tree::new()
-                .leaf("Pod", move |c| {pod(c)})
+                .leaf("Pod", move |c| {
+                    let list = SelectView::new()
+                        .item("Name", "Test");
+                })
                 .leaf("Service", move |c| {service(c)})
                 .leaf("ConfigMap", move |c| {configmap(c)})
                 .leaf("Network", move |c| {})
@@ -53,4 +58,5 @@ fn main() {
         )
         .add_leaf("Monitoring", |c| {});
     app.run();
+    Ok(())
 }

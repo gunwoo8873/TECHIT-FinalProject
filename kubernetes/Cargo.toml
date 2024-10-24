@@ -26,6 +26,7 @@ features = ["latest"]
 
 [dependencies.cursive]
 version = "0.21.1"
+features = ["toml"]
 
 [dependencies.sysinfo]
 version = "0.32.0"

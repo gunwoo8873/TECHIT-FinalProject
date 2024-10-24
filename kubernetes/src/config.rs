@@ -1,8 +1,6 @@
 use cursive::{
     *,
     views::*,
-    // traits::*,
-    // event::Key,
 };
 use std::{
     sync::atomic::{AtomicUsize, Ordering},
@@ -13,12 +11,6 @@ use kube::{
     api::{Api, ResourceExt, ListParams, PostParams},
 };
 use k8s_openapi::api::core::v1::{Pod, ConfigMap, Service, Node};
-
-//// Kube Client
-async fn kube_client() -> Result<(), Box<dyn Error>> {
-    let client = Client::try_default().await?;
-    Ok(())
-}
 
 //// Quit
 pub fn yes(c: &mut Cursive) {
@@ -31,6 +23,15 @@ pub fn no(c: &mut Cursive) {
 
 pub fn menu(c: &mut Cursive) {
     c.select_menubar();
+}
+
+//// Kube Client
+#[tokio::main]
+pub async fn get_pod(c: &mut Cursive) -> Result<(), Box<dyn Error>> {
+    let client = Client::try_default().await?;
+    let pods: Api<Pod> = Api::default_namespaced(client);
+    let lp = ListParams::default();
+    Ok(())
 }
 
 //// Resource
