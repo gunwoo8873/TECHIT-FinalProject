@@ -2,10 +2,7 @@ name: backend-action.yml
 on:
   push:
     branches: [ "backend/**" ]
-    path: "backend/**"
-  pull_request:
-    branches: [ "backend/**" ]
-    path: "backend/**"
+    paths: ["backend/**"]
   workflow_dispatch:
 
 jobs:

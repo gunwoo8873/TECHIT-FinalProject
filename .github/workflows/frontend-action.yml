@@ -3,8 +3,6 @@ on:
   push:
     branches: [ "frontend/**" ]
     paths-ignore: [ "**.md", "**.png", "**cd.yml" ]
-  pull_request:
-    branches: [ "frontend/**" ]
   workflow_dispatch:
 
 jobs:

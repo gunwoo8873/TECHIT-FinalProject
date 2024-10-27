@@ -1,4 +1,98 @@
-name: docker-action.yml
+name: Docker Image CI
+
 on:
+  push:
+    branches: ["develop", "feature/**" ]
+  workflow_dispatch:
+
+env:
+  IMAGE_TAG: v0.0.*
+  IMAGE_NAME: node-backend
+  CONTAINER_NAME: backend-container
+  CONTAINER_HOST: localhost
+  CONTAINER_PORT: 8000
+  REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
+  USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+  ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
 
 jobs:
+  Setup:
+    runs-on: self-hosted
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+
+      -
+        name: Set IMAGE_URI
+        id: set-image-uri
+        run: echo "IMAGE_URI=${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}" >> $GITHUB_ENV
+
+      -
+        name: Docker Login
+        uses: docker/login-action@v3.3.0
+        with:
+          registry: ${{ env.REGISTRY_URL }}
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
+
+      -
+        name: Build the Docker image
+        run: docker build . --tag ${{ env.IMAGE_URI }} || { echo 'Build failed!'; exit 1; }
+
+      -
+        name: Run Trivy vulnerability scan
+        run: |
+          trivy image \
+          --format table \
+          --severity CRITICAL,HIGH \
+          --vuln-type os,library \
+          --ignore-unfixed \
+          ${{ env.IMAGE_URI }}
+
+      -
+        name: Run the Docker container
+        run: docker run -d --name ${{ env.CONTAINER_NAME }} -p ${{ env.CONTAINER_PORT }}:${{ env.CONTAINER_PORT }} ${{ env.IMAGE_URI }} || { echo 'Run failed!'; exit 1; }
+
+      -
+        name: Health Check
+        run: |
+          for i in {1..10}; do
+            sleep 5
+            if curl --silent --fail http://${{ env.CONTAINER_HOST }}:${{ env.CONTAINER_PORT }}/health; then
+              exit 0
+            fi
+            echo "Waiting for server to start..."
+          done
+          echo "Health check failed!"
+          exit 1
+
+  Image-Build:
+    runs-on: ubuntu-latest
+    needs: ["Setup"]
+    steps:
+      -
+        name: Push the Docker image
+        run: docker push ${{ env.IMAGE_URI }}
+
+      -
+        name: Sync in ArgoCD
+        run: |
+          argocd app sync this-is-my-app --auth-token ${{ env.ARGOCD_TOKEN }} --server ${{ env.ARGOCD_SERVER }} --insecure --force
+          sleep 5
+          kubectl rollout restart deployment/backend-server -n bank-namespace
+
+      -
+        name: Cleanup
+        if: always()
+        run: |
+          docker stop ${{ env.CONTAINER_NAME }} || echo "Container not running or already stopped."
+          docker rm ${{ env.CONTAINER_NAME }} || echo "Container not found."
+          dangling_images=$(docker images -f "dangling=true" -q)
+          if [ -n "$dangling_images" ]; then
+            docker rmi $dangling_images || echo "Failed to remove dangling images."
+          else
+            echo "No dangling images to remove."
+          fi

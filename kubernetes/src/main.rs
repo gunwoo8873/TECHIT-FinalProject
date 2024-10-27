@@ -1,62 +1,64 @@
-use cursive::{
-    *,
-    views::*,
-    event::Key,
-    // traits::*,
-};
-// use std::sync::atomic::{AtomicUsize, Ordering};
-use kubernetes::config::*;
-use std::error::Error;
+use cursive::*;
+use cursive::views::*;
+use kubernetes::config::{*};
 
-fn main() -> Result<(), Box<dyn Error>> {
-    let mut app = default();
+fn main()
+{
+    let mut c = default();
+    key_handler(&mut c);
+    ui_style(&mut c);
+    menu(&mut c);
+    c.run();
+}
 
-    //// Global Theme Setup
-    app.load_toml(include_str!("../App.toml")).unwrap();
-
-    //// Global Callback Key Event
-    app.add_global_callback(Key::Esc, |c| c.add_layer(
-        Dialog::new()
-            .title("Quit")
-            .content(TextView::new("Are you sure?"))
-            .button("Yes", yes)
-            .button("No", no)
-    ));
-
-    app.add_global_callback(Key::Tab, menu);
-
-    //// Menu
-    app.menubar()
-        .add_subtree(
+fn menu(c: &mut Cursive)
+{
+    c.menubar()
+        //// Kubernetes Resource
+        .add_subtree
+        (
             "Resource",
             menu::Tree::new()
-                .leaf("Pod", move |c| {
-                    let list = SelectView::new()
-                        .item("Name", "Test");
-                })
-                .leaf("Service", move |c| {service(c)})
-                .leaf("ConfigMap", move |c| {configmap(c)})
-                .leaf("Network", move |c| {})
-                .leaf("Node", move |c| {node(c)})
+                //// Kubernetes Resource Information
+                .leaf("Pod", move |c| { pods() })
+                .leaf("Service", move |c| { services() })
+                .leaf("ConfigMap", move |c| c.add_layer(Dialog::info("Content")))
+                .leaf("Node", move |c| c.add_layer(Dialog::info("Content")))
+                .leaf("Network", move |c| c.add_layer(Dialog::info("Content")))
                 .delimiter()
-                .leaf("CPU", move |c| {})
-                .leaf("Memory", move |c| {})
-                .leaf("GPU", move |c| {})
+                //// CPU, Memory, GPU Used Information
+                .leaf("CPU", move |c| c.add_layer(Dialog::info("Content")))
+                .leaf("Memory", move |c| c.add_layer(Dialog::info("Content")))
+                .leaf("GPU", move |c| c.add_layer(Dialog::info("Content")))
         )
-        .add_subtree(
-            "Option",
+        //// UI Options
+        .add_subtree
+        (
+            "Options",
             menu::Tree::new()
-                .leaf("Color", move |c| {})
-                .leaf("Text", move |c| {})
+                .leaf("Theme", move |c| c.add_layer(Dialog::info("Content")))
+                .leaf("Text", move |c| c.add_layer(Dialog::info("Content")))
         )
-        .add_subtree(
+        //// TUI Help
+        .add_subtree
+        (
             "Help",
             menu::Tree::new()
-                .leaf("Key", move |c| {key(c)})
+                .leaf("Key", move |c| { key(c) })
                 .leaf("Repository", move |c| {repository(c)})
                 .leaf("Version", move |c| {version(c)})
+                .leaf("Update", move |c| {})
         )
-        .add_leaf("Monitoring", |c| {});
-    app.run();
-    Ok(())
+        .add_leaf
+        (
+            "Exit",
+            |c| c.add_layer
+            (
+                Dialog::new()
+                    .title("Quit")
+                    .content(TextView::new("Are you sure?"))
+                    .button("Yes", yes)
+                    .button("No", no)
+            )
+        );
 }
