@@ -2,15 +2,16 @@ name: Docker Image CI
 
 on:
   push:
-    branches: ["develop", "feature/**" ]
+    branches: [ "develop", "feature/**" ]
+    paths-ignore: [ "**.md", "**.jpg", "**.png" ]
   workflow_dispatch:
 
 env:
-  IMAGE_TAG: v0.0.*
+  IMAGE_TAG: v0.0.1
   IMAGE_NAME: node-backend
   CONTAINER_NAME: backend-container
-  CONTAINER_HOST: localhost
-  CONTAINER_PORT: 8000
+  CONTAINER_HOST: ${{ secrets.localhost }}
+  CONTAINER_PORT: ${{ secrets.port }}
   REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
   USERNAME: ${{ secrets.DOCKER_USERNAME }}
   PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -18,7 +19,7 @@ env:
   ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
 
 jobs:
-  Setup:
+  CI:
     runs-on: self-hosted
     steps:
       -
@@ -69,14 +70,14 @@ jobs:
           echo "Health check failed!"
           exit 1
 
-  Image-Build:
-    runs-on: ubuntu-latest
-    needs: ["Setup"]
-    steps:
       -
         name: Push the Docker image
         run: docker push ${{ env.IMAGE_URI }}
 
+  CD:
+    runs-on: self-hosted
+    needs: ["CI"]
+    steps:
       -
         name: Sync in ArgoCD
         run: |
@@ -96,3 +97,4 @@ jobs:
           else
             echo "No dangling images to remove."
           fi
+          
